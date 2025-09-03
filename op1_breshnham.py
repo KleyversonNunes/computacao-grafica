@@ -1,23 +1,23 @@
 import tkinter as tk
 
 class BresenhamGUI:
-    def __init__(self, master, main_menu_callback=None): # Modificado
+    def __init__(self, master, main_menu_callback=None):
         self.master = master
         self.master.title("Visualizador do Algoritmo de Bresenham")
-        self.main_menu_callback = main_menu_callback # Modificado
+        self.main_menu_callback = main_menu_callback
 
         self.PIXEL_SIZE = 20
         self.GRID_WIDTH = 30
         self.GRID_HEIGHT = 30
         self.start_point = None
         
-        button_frame = tk.Frame(master) # Modificado
+        button_frame = tk.Frame(master)
         button_frame.pack(pady=5)
 
-        self.clear_button = tk.Button(button_frame, text="Limpar", command=self.clear_canvas) # Modificado
+        self.clear_button = tk.Button(button_frame, text="Limpar", command=self.clear_canvas)
         self.clear_button.pack(side=tk.LEFT, padx=5)
 
-        # Botão para voltar ao menu principal (Modificado)
+        # Botão para voltar ao menu principal
         if self.main_menu_callback:
             self.back_button = tk.Button(button_frame, text="Voltar ao Menu", command=self._go_back)
             self.back_button.pack(side=tk.LEFT, padx=5)
@@ -29,7 +29,7 @@ class BresenhamGUI:
         self.canvas.bind("<Button-1>", self.on_canvas_click)
         self.draw_grid()
     
-    # Nova função para voltar ao menu (Modificado)
+    # Função para voltar ao menu
     def _go_back(self):
         self.master.destroy()
         self.main_menu_callback()
